@@ -5,6 +5,8 @@ const { ApolloServer } = require("apollo-server-express");
 const { loadFilesSync } = require("@graphql-tools/load-files");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
 
+const PORT = 3000;
+
 const typesArray = loadFilesSync("./schemas/**/*", {
   extensions: ["graphql"],
 });
@@ -30,8 +32,8 @@ async function startApolloServer() {
     path: "/graphql",
   });
 
-  app.listen(3000, () => {
-    console.log("running graphql server on port 3000...");
+  app.listen(PORT, () => {
+    console.log(`running graphql server on port ${PORT}...`);
   });
 }
 
